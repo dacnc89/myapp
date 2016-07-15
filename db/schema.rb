@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160715072414) do
+ActiveRecord::Schema.define(version: 20160715161747) do
 
   create_table "messengers", force: :cascade do |t|
     t.text     "content"
@@ -29,8 +29,11 @@ ActiveRecord::Schema.define(version: 20160715072414) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "emai"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
+
+  add_index "users", ["emai"], name: "index_users_on_emai", unique: true
 
 end
