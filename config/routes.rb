@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  get 'welcome' => 'pages#home'
+  resources :microposts
+  resources :users
+  # root 'users#index'
+  # get 'welcome' => 'pages#home'
+  # get 'messages' => 'messages#index'
+  # get 'messages/new' => 'messages#new'
+  # post 'messages' => 'messages#create'
+
+  get 'messages' => 'messages#index'
+  get 'messages/new' => 'messages#new'
+  post 'messages' => 'messages#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
