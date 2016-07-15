@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
+  root 'static_pages#home'
 
-  get 'static_pages/help'
-
-  resources :microposts
-  resources :users
-  root 'application#hello'
+  get 'about', to: 'static_pages#about'
+  get 'help' , to: 'static_pages#help'
+  get 'contact', to: 'static_pages#contact'
+  get 'signup', to: 'users#new'
   # root 'users#index'
   # get 'welcome' => 'pages#home'
   # get 'messages' => 'messages#index'
