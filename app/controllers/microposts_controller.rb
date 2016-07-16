@@ -53,6 +53,13 @@ class MicropostsController < ApplicationController
 
   # DELETE /microposts/1
   # DELETE /microposts/1.json
+  def search
+    @query = Micropost.seach do
+      fulltext param[:seach]
+    end
+    @microposts=@query.results
+  end
+
   def destroy
     @micropost.destroy
     respond_to do |format|
